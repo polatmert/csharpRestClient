@@ -1,0 +1,7 @@
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.Form1.resources
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.Properties.Resources.resources
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.csproj.GenerateResource.Cache
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\bin\Debug\csharpRestClient.exe
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\bin\Debug\csharpRestClient.pdb
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.exe
+C:\Users\mert.polat\Desktop\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.pdb
