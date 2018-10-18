@@ -15,11 +15,28 @@ namespace csharpRestClient
         DELETE
     }
 
+    public enum authenticationType
+    {
+        Basic,
+        NTLM
+    }
+
+    public enum authenticationTechnique
+    {
+        RollYourOwn,
+        NetworkCredential
+    }
+
     class RestClient
     {
         public string endPoint { get; set; }
-
         public httpVerb httpMethod { get; set; }
+        public authenticationType authType { get; set; }
+        public authenticationTechnique authTech { get; set; }
+        public string userName { get; set; }
+        public string Password{ get; set; }
+
+
 
         public RestClient()
         {
@@ -31,10 +48,13 @@ namespace csharpRestClient
         {
 
             string strResponseValue = string.Empty;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endPoint);
+
+            String authHeader = System.Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(userName + ":" + Password));
+            request.Headers.Add("Authorization", authType.ToString() + " " + authHeader);
 
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endPoint);
                 request.Method = httpMethod.ToString();
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
@@ -55,16 +75,15 @@ namespace csharpRestClient
                         }
                     }//End of using ResponseStream
 
-
                 }//End of using response
             }
+
             catch(Exception e)
             {
                 System.Diagnostics.Debug.Write(e.Message, ToString() + Environment.NewLine);
                 return e.Message.ToString();
             }
-           
-
+                   
                 return strResponseValue;
         }
     }

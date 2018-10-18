@@ -20,18 +20,22 @@ namespace csharpRestClient
 
         private void cmdGO_Click(object sender, EventArgs e)
         {
+
+            //example Url: http://dry-cliffs-19849.herokuapp.com/users.json
+
             RestClient rClient = new RestClient();
             rClient.endPoint = txtRequestUrl.Text;
+           // rClient.authTech = authenticationTechnique.RollYourOwn;
+            rClient.authType = authenticationType.Basic;
+            rClient.userName = txtUserName.Text;
+            rClient.Password = txtPassword.Text;
 
             string strResponse = string.Empty;
             strResponse = rClient.makeRequest();
             debugOutput(strResponse);
-            
-            //debugOutput("This is some output that I can use to test stuff");
         }
 
         #endregion
-
 
         #region debug Function
         private void debugOutput(string strDebugText)
@@ -43,14 +47,14 @@ namespace csharpRestClient
                 txtResponse.SelectionStart = txtResponse.TextLength;
                 txtResponse.ScrollToCaret();
             }
-            catch(Exception e)
+
+            catch(Exception e) 
             {
                 txtResponse.Text = e.Message.ToString();
-            }
-            
+            }          
         }
         #endregion
 
-       
+     
     }
 }
